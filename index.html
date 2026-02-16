@@ -1777,7 +1777,7 @@ const Editor = (()=>{
   }
   function placeOrDrag(mx,my,e){
     const w=toWorld(mx,my), h=hit(w.x,w.y);
-    if(e.pointerType==='touch' && !h.obj){ panning=true; px=mx; py=my; return; }
+    if(e.pointerType==='touch' && !h.obj){ /* allow tap placement */ }
     if(spawnMode){ data.spawnX=snap(w.x); draw(); return; }
     if(deleteMode && h.obj){ removeObj(h); draw(); return; }
     if(h.obj){ selected=h.obj; selectedType=h.type; drag=h.obj; dragType=h.type; dragOff.x=w.x-(drag.x||0); dragOff.y=w.y-(drag.y||0); draw(); return; }
